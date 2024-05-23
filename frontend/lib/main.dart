@@ -13,8 +13,26 @@ class MyApp extends StatelessWidget {
       title: 'Water Usage Tracker',
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ButtonStyle(
+            backgroundColor: MaterialStateProperty.all<Color>(Colors.blue),
+            foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
+          ),
+        ),
       ),
-      home: MenuPage(),
+      home: Scaffold(
+        body: Container(
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage('assets/aquatracklogo.jpg'),
+              fit: BoxFit.cover,
+            ),
+          ),
+          child: Center(
+            child: MenuPage(),
+          ),
+        ),
+      ),
     );
   }
 }
@@ -31,6 +49,13 @@ class MenuPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                foregroundColor: Colors.white, backgroundColor: Colors.blue,
+                padding: EdgeInsets.symmetric(horizontal: 32, vertical: 16),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(8.0),
+                ),
+              ),
               child: Text('Registrar Actividad'),
               onPressed: () {
                 Navigator.push(
@@ -41,6 +66,13 @@ class MenuPage extends StatelessWidget {
             ),
             SizedBox(height: 20),
             ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                foregroundColor: Colors.white, backgroundColor: Colors.blue,
+                padding: EdgeInsets.symmetric(horizontal: 32, vertical: 16),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(8.0),
+                ),
+              ),
               child: Text('Ver Historial'),
               onPressed: () {
                 Navigator.push(
@@ -62,7 +94,7 @@ class RegisterActivityPage extends StatefulWidget {
 }
 
 class _RegisterActivityPageState extends State<RegisterActivityPage> {
-  int _personaId = 1;  // ID de ejemplo de una persona registrada
+  int _personaId = 1; 
   double _tiempoActividad = 0;
 
   String _selectedActivity = '';
@@ -154,6 +186,13 @@ class _RegisterActivityPageState extends State<RegisterActivityPage> {
               },
             ),
             ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                foregroundColor: Colors.white, backgroundColor: Colors.blue,
+                padding: EdgeInsets.symmetric(horizontal: 32, vertical: 16),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(8.0),
+                ),
+              ),
               child: Text('Registrar'),
               onPressed: _registerActivity,
             ),
